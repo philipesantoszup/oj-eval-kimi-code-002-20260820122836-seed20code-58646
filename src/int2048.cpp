@@ -6,6 +6,8 @@ namespace sjtu {
 
 using cd = std::complex<double>;
 const double PI = acos(-1);
+const long long BASE = 100000;
+const int BASE_DIGITS = 5;
 
 // FFT implementation
 void int2048::fft(std::vector<cd> & a, bool invert) {

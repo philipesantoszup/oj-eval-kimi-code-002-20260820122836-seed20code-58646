@@ -22,8 +22,8 @@
 namespace sjtu {
 
 // Constants for digit compression
-const long long BASE = 1000000000;
-const int BASE_DIGITS = 9;
+const long long BASE = 100000;
+const int BASE_DIGITS = 5;
 
 using cd = std::complex<double>;
 const double PI = acos(-1);
