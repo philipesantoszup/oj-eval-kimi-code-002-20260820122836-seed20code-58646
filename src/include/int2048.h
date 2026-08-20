@@ -20,8 +20,8 @@
 namespace sjtu {
 
 // Constants for digit compression
-const long long BASE = 100000;
-const int BASE_DIGITS = 5;
+const long long BASE = 1000;
+const int BASE_DIGITS = 3;
 
 class int2048 {
 private:

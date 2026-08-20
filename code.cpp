@@ -22,8 +22,8 @@
 namespace sjtu {
 
 // Constants for digit compression
-const long long BASE = 100000;
-const int BASE_DIGITS = 5;
+const long long BASE = 1000;
+const int BASE_DIGITS = 3;
 
 using cd = std::complex<double>;
 const double PI = acos(-1);
@@ -155,13 +155,19 @@ std::vector<long long> int2048::multiply_fft(const std::vector<long long> &a, co
 
     std::vector<long long> result(n);
     for (int i = 0; i < n; i++)
-        result[i] = std::round(fa[i].real());
+        result[i] = (long long)(fa[i].real() + 0.5); // Add 0.5 for proper rounding
     
     long long carry = 0;
     for (int i = 0; i < n; i++) {
         long long total = result[i] + carry;
         result[i] = total % BASE;
         carry = total / BASE;
+    }
+    
+    // Handle remaining carry
+    while (carry > 0) {
+        result.push_back(carry % BASE);
+        carry /= BASE;
     }
     
     while (result.size() > 1 && result.back() == 0)
